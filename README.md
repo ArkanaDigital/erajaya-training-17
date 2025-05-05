@@ -541,6 +541,9 @@ python odoo-17.0.post20250206/odoo-bin -c odoo.conf --dev=all
 # Run Odoo scaffold (for new addons template)
 python odoo-17.0.post20250206/odoo-bin scaffold arkana_academy
 
+# Run odoo shell (for orm manipulation)
+python odoo-17.0.post20250206/odoo-bin shell -d v17_erajaya_training
+
 # Common parameters
 # -d DATABASE     Specify database name
 # -u MODULE       Update module
