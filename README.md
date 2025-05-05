@@ -175,16 +175,16 @@ else:
 **Conditional with AND/OR**
 ```python
 # Using AND (both conditions must be True)
-if product.active and product.quantity > 0:
-    state = 'available'
+if age > 18 and has_license:
+    can_drive = True
 
 # Using OR (at least one condition must be True)
-if product.price < 100 or product.on_sale:
-    featured = True
+if temperature < 0 or weather == "snowy":
+    is_freezing = True
     
 # Complex condition with parentheses for clarity
-if (price > 1000 and quantity > 5) or (is_premium and quantity > 0):
-    eligible_for_discount = True
+if (score > 90 and attendance > 80) or (is_honors_student and score > 85):
+    eligible_for_award = True
 ```
 
 **Ternary Operator (Conditional Expression)**
@@ -433,6 +433,21 @@ def _check_dates(self):
     for record in self:
         if record.start_date and record.end_date and record.start_date > record.end_date:
             raise ValidationError("End date cannot be before start date")
+```
+
+**Odoo Conditional Statements Example**
+```python
+# Using AND with Odoo record fields
+if product.active and product.quantity > 0:
+    product.state = 'available'
+
+# Using OR with Odoo record fields
+if product.price < 100 or product.on_sale:
+    product.featured = True
+    
+# Complex condition for Odoo business logic
+if (product.price > 1000 and product.quantity > 5) or (product.is_premium and product.quantity > 0):
+    product.eligible_for_discount = True
 ```
 
 ---
