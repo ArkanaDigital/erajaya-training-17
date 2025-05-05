@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="course_sesion_view_tree">
+            <field name="name">course.session.tree</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="0" duplicate="0" decoration-info="duration &lt; 5" decoration-danger="duration &gt; 15">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="partner_id"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="seat_total"/>
+                    <field name="seat_occupied" widget="progressbar"/>
+                    <!-- <button name="button_confirm" type="object" string="open"/> -->
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form View -->
+        <record model="ir.ui.view" id="course_sesion_view_form">
+            <field name="name">course.session.form</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_set_confirmed" type="object" string="Confirm" invisible="state in ('confirmed', 'done')" class="oe_highlight"  groups="arkana_academy.group_academy_user"/>
+                        <button name="action_set_done" type="object" string="Set to Done" invisible="state in ('done', 'draft')" class="oe_highlight"/>
+                        <button name="%(arkana_academy.action_session_add_attendee_wizard)d" type="action" string="Add Attendee" class="oe_highlight"/>
+                        <button name="action_set_draft" type="object" string="Set to Draft" invisible="state in ('draft')"/>
+                        <button name="action_send_session_email" 
+                            type="object" 
+                            string="Send by Email"
+                            data-hotkey="g"
+                            invisible="state == 'draft'"
+                        />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="state != 'draft'"/>
+                                <!-- <field name="course_id" domain="[('is_publish', '=', True)]"/> -->
+                                <field name="course_id"/>
+                                <field name="ready_course_id"/>
+                                <field name="partner_id"/>
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                            </group>
+                            <group>
+                                <field name="seat_total"/>
+                                <field name="seat_occupied" widget="progressbar" invisible="state == 'draft'"/>
+                                <field name="course_ids" widget="many2many_tags"/>
+                                <field name="stage_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Attendees">
+                                <field name="attendee_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Calendar View -->
+        <record model="ir.ui.view" id="course_sesion_view_calendar">
+            <field name="name">course.session.calendar</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Sessions" date_start="start_date" color="course_id">
+                    <field name="name"/>
+                    <field name="duration"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Graph View -->
+        <record model="ir.ui.view" id="course_sesion_view_graph">
+            <field name="name">course.session.graph</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <graph string="Sessions" type="bar">
+                    <field name="name" type="row"/>
+                    <field name="seat_total" type="measure"/>
+                    <field name="attendee_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Kanban View -->
+        <record model="ir.ui.view" id="course_sesion_view_kanban">
+            <field name="name">course.session.kanban</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="partner_id"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="seat_total"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="oe_kanban_global_click">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <div>
+                                        <field name="course_id"/>
+                                    </div>
+                                    <div>
+                                        <field name="partner_id"/>
+                                    </div>
+                                    <div>
+                                        <field name="start_date"/>
+                                    </div>
+                                    <div>
+                                        <field name="duration"/>
+                                    </div>
+                                    <div>
+                                        <field name="seat_total"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="course_sesion_view_action">
+            <field name="name">Session</field>
+            <field name="res_model">course.session</field>
+            <field name="view_mode">tree,calendar,graph,kanban,form</field>
+        </record>
+
+        <menuitem 
+            id="menu_course_session"
+            name="Session"
+            parent="menu_course_root"
+            sequence="20"
+            action="course_sesion_view_action"
+        />
+
+        <menuitem 
+            id="menu_register_attendee"
+            name="Register Attendee"
+            parent="menu_course_root"
+            action="arkana_academy.action_session_add_attendee_wizard"
+            sequence="30"
+        />
+
+    </data>
+</odoo>

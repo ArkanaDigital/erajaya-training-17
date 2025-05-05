@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="arkana_academy.list">
+      <field name="name">arkana_academy list</field>
+      <field name="model">arkana_academy.arkana_academy</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="arkana_academy.action_window">
+      <field name="name">arkana_academy window</field>
+      <field name="res_model">arkana_academy.arkana_academy</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="arkana_academy.action_server">
+      <field name="name">arkana_academy server</field>
+      <field name="model_id" ref="model_arkana_academy_arkana_academy"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="arkana_academy" id="arkana_academy.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="arkana_academy.menu_1" parent="arkana_academy.menu_root"/>
+    <menuitem name="Menu 2" id="arkana_academy.menu_2" parent="arkana_academy.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="arkana_academy.menu_1_list" parent="arkana_academy.menu_1"
+              action="arkana_academy.action_window"/>
+    <menuitem name="Server to list" id="arkana_academy" parent="arkana_academy.menu_2"
+              action="arkana_academy.action_server"/>
+-->
+  </data>
+</odoo>

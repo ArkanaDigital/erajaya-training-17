@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_view_form">
+            <field name="name">res.partner.inherit.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- metode search tag field -->
+                <field name="function" position="after">
+                    <field name="is_instructor"/>
+                </field>
+                <!-- metode xpath elemen field -->
+                <!-- <xpath xpath="//field[@name='function']" position="after">
+                    <field name="is_instructor" readonly="1"/>
+                </xpath> -->
+                <!-- <xpath expr="//notebook//page[last()]" position="after">
+                    <page name="course_session" string="Course Session">
+                        <field name="course_session_ids" readonly="1"/>
+                    </page>
+                </xpath> -->
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_course_session" model="ir.sequence">
+            <field name="name">Course Session</field>
+            <field name="code">course.session</field>
+            <field name="prefix">CS/%(year)s/%(month)s</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

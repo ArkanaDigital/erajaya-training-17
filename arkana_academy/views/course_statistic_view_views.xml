@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree/List View -->
+    <record id="course_statistics_view_tree" model="ir.ui.view">
+        <field name="name">course.statistics.view.tree</field>
+        <field name="model">course.statistics.view</field>
+        <field name="arch" type="xml">
+            <tree string="Course Statistics" create="false" delete="false">
+                <field name="name"/>
+                <field name="level"/>
+                <field name="course_state"/>
+                <field name="total_sessions"/>
+                <field name="total_attendees" sum="Total Attendees"/>
+                <field name="total_duration" sum="Total Duration"/>
+                <field name="avg_occupancy"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="course_statistics_view_graph" model="ir.ui.view">
+        <field name="name">course.statistics.view.graph</field>
+        <field name="model">course.statistics.view</field>
+        <field name="arch" type="xml">
+            <graph string="Course Statistics" type="bar">
+                <field name="name" type="row"/>
+                <field name="total_sessions" type="measure"/>
+                <field name="total_attendees" type="measure"/>
+                <field name="total_duration" type="measure"/>
+                <field name="avg_occupancy" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="course_statistics_view_search" model="ir.ui.view">
+        <field name="name">course.statistics.view.search</field>
+        <field name="model">course.statistics.view</field>
+        <field name="arch" type="xml">
+            <search string="Course Statistics">
+                <field name="name"/>
+                <field name="level"/>
+                <filter string="Beginner Courses" name="beginner" domain="[('level', '=', 'beginner')]"/>
+                <filter string="Intermediate Courses" name="intermediate" domain="[('level', '=', 'intermediate')]"/>
+                <filter string="Advanced Courses" name="advance" domain="[('level', '=', 'advance')]"/>
+                <filter string="Expert Courses" name="expert" domain="[('level', '=', 'expert')]"/>
+                <separator/>
+                <filter string="In Progress" name="in_progress" domain="[('course_state', '=', 'in_progress')]"/>
+                <filter string="Done" name="done" domain="[('course_state', '=', 'done')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Level" name="group_by_level" context="{'group_by': 'level'}"/>
+                    <filter string="Status" name="group_by_state" context="{'group_by': 'course_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_course_statistics" model="ir.actions.act_window">
+        <field name="name">Course Statistics</field>
+        <field name="res_model">course.statistics.view</field>
+        <field name="view_mode">tree,graph</field>
+        <field name="search_view_id" ref="course_statistics_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No course statistics found.
+            </p>
+            <p>
+                This view shows statistics about your courses, including total sessions, attendees, and occupancy rates.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_course_statistics"
+        name="Course Statistics"
+        parent="menu_course_root"
+        action="action_course_statistics"
+        sequence="20"/>
+</odoo>

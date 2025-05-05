@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Sample stage-related template -->
+        <!-- <record id="email_template_course_session" model="mail.template">
+            <field name="name">Course Session: Attendee Status Confirmation</field>
+            <field name="model_id" ref="model_course_session"/>
+            <field name="subject">Reception of {{ object.name }}</field>
+            <field name="use_default_to" eval="True"/>
+            <field name="description">Set this template on a project's stage to automate email when tasks reach stages</field>
+            <field name="body_html" type="html">
+<div>
+    Dear <t t-out="object.partner_id.name or 'customer'">Brandon Freeman</t>,<br/>
+    Thank you for your enquiry.<br />
+    If you have any questions, please let us know.
+    <br/><br/>
+    Thank you,
+</div>
+        </field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record> -->
+        
+        <record id="email_template_res_partner_info" model="mail.template">
+            <field name="name">Partner Information</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Information about {{ object.name }}</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="body_html" type="html">
+                <div>
+                    <p>Dear <t t-out="object.name"/>,</p>
+                    <p>Here is the information we have on file for you:</p>
+                    <ul>
+                        <li><strong>Name:</strong> <t t-out="object.name"/></li>
+                        <li><strong>Email:</strong> <t t-out="object.email"/></li>
+                        <li><strong>Phone:</strong> <t t-out="object.phone"/></li>
+                        <li><strong>Address:</strong> <t t-out="object.contact_address"/></li>
+                    </ul>
+                    <p>If any of this information is incorrect, please let us know.</p>
+                    <p>Best regards,<br/><t t-out="user.name"/></p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+        <record id="email_template_course_session" model="mail.template">
+            <field name="name">Course Session: Send by Email</field>
+            <field name="model_id" ref="model_course_session"/>
+            <field name="subject">Course Session: {{ object.name }}</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="partner_to">{{ ','.join(object.attendee_ids.mapped('id'))}}</field>
+            <field name="partner_to">{{object.partner_id.id and object.additional_recipients.ids }}</field>
+
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear Participant,
+                        <br/><br/>
+                        You are registered for the following course session:
+                        <br/><br/>
+                        <strong>Session:</strong> <t t-out="object.name"/><br/>
+                        <strong>Course:</strong> <t t-out="object.course_id.name"/><br/>
+                        <strong>Start Date:</strong> <t t-out="object.start_date"/><br/>
+                        <strong>Duration:</strong> <t t-out="object.duration"/> Hours<br/>
+                        <strong>Instructor:</strong> <t t-out="object.partner_id.name"/><br/>
+                        <br/>
+                        Please make sure to arrive on time.
+                        <br/><br/>
+                        Best regards,<br/>
+                        <t t-out="user.name"/>
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>
