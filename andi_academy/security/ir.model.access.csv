@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_andi_academy_andi_academy,andi_academy.andi_academy,model_andi_academy_andi_academy,base.group_user,1,1,1,1

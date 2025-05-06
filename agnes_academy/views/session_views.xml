@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="course_sesion_view_tree">
+            <field name="name">course.session.tree</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="0" duplicate="0" decoration-info="duration &lt; 5" decoration-danger="duration &gt; 15">
+                    <field name="name"/>
+                    <!-- day 2 -->
+                    <field name="course_id"/>
+                    <field name="partner_id"/>
+                    <!-- day 2 -->
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="seat_total"/>
+                    <!-- <field name="seat_occupied" widget="progressbar"/> -->
+                    <!-- <button name="button_confirm" type="object" string="open"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="course_sesion_view_form">
+            <field name="name">course.session.form</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" class="btn-primary"/>  
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <!-- day 2 -->
+                                <!-- <field name="course_id" domain="[('is_publish', '=', True)]"/> -->
+                                <field name="course_id"/>
+                                <!-- <field name="ready_course_id"/> -->
+                                <field name="partner_id"/>
+                                <!-- day 2 -->
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                            </group>
+                            <group>
+                                <field name="seat_total"/>
+                                <!-- day 2 -->
+                                <!-- <field name="seat_occupied" widget="progressbar" invisible="state == 'draft'"/> -->
+                                <!-- <field name="course_ids" widget="many2many_tags"/> -->
+                                <!-- day 2 -->
+                            </group>
+                        </group>
+                        <!-- day 2 -->
+                        <notebook>
+                            <page string="Attendees">
+                                <field name="attendee_ids"/>
+                            </page>
+                        </notebook>
+                        <!-- day 2 -->
+                    </sheet>
+                    <!-- day 2 -->
+                    <!-- Chatter -->
+                    <!-- <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div> -->
+                    <!-- day 2 -->
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="course_sesion_view_action">
+            <field name="name">Session</field>
+            <field name="res_model">course.session</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+            id="menu_course_session"
+            name="Session"
+            parent="agnes_academy.menu_course_root"
+            sequence="20"
+            action="course_sesion_view_action"
+        />
+    </data>
+</odoo>

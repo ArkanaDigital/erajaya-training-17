@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_partner_view_form">
+            <field name="name">res.partner.inherit.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- metode search tag field -->
+                <!-- <field name="function" position="before">
+                    <field name="is_instructor"/>
+                </field> -->
+                <!-- other position bellow vat -->
+                <field name="vat" position="after">
+                    <field name="is_instructor"/>
+                </field>
+                <!-- metode xpath elemen field -->
+                <!-- <xpath expr="//group//group//field[@name='vat']" position="after">
+                    <field name="is_instructor" readonly="1"/>
+                </xpath> -->
+                <!-- <xpath xpath="//field[@name='function']" position="after">
+                    <field name="is_instructor" readonly="1"/>
+                </xpath> -->
+                <xpath expr="//notebook//page[last()]" position="after">
+                    <page name="course_session" string="Course Session">
+                        <field name="course_session_ids" readonly="1"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

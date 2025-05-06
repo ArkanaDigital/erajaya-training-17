@@ -1,0 +1,130 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="course_course_view_tree">
+            <field name="name">course.course.tree</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="1">
+                    <field name="name"/>
+                    <field name="duration" sum="Total"/>
+                    <field name="level"/>
+                    <!-- day 2 -->
+                    <field name="user_id"/>
+                    <!-- day 2 -->
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="enrollment_deadline"/>
+                    <!-- day 1 phase 3 -->
+                    <!-- <field name="price" widget="monetary"/> -->
+                    <!-- <field name="currency_id" column_invisible="1"/> -->
+                    <!-- <field name="is_publish"/> -->
+                    <field name="is_to_delete" invisible="1" />
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="course_course_view_form">
+            <field name="name">course.course.form</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="button_publish" type="object" string="Publish"/>
+                        <button name="button_unpublish" type="object" string="Unpublish"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Title</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <!-- day 2 -->
+                                <field name="user_id"/>
+                                <!-- day 2 -->
+                                <field name="duration"/>
+                                <field name="level"/>
+                                <!-- <field name="price" widget="monetary" readonly="is_edit_price != True"/> -->
+                                <!-- <field name="is_edit_price" invisible="1"/> -->
+                                <!-- <field name="currency_id"/> -->
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="enrollment_deadline"/>
+                                <!-- <field name="is_publish"/> -->
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Syllabus" name="syllabus">
+                                <field name="syllabus"/>
+                            </page>
+                            <!-- day 2 -->
+                            <page string="Sessions" name="session">
+                                <field name="session_ids" readonly="1"/>
+                            </page>
+                            <!-- day 2 -->
+                            <page string="Other Info">
+                                <group>
+                                    <field name="is_to_delete"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record model="ir.ui.view" id="course_course_view_search">
+            <field name="name">course.course.search</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <!-- <filter name="fl_in_progress" string="In Progress" domain="[('state','=', 'in_progress')]"/> -->
+                    <!-- <filter name="fl_responsible" string="Responsible" domain="[('user_id','=', uid)]"/> -->
+                    <!-- <group>
+                        <filter name="gr_responsible" string="Responsible" context="{'group_by':'user_id'}"/>
+                        <filter name="gr_state" string="Status" context="{'group_by':'state'}"/>
+                    </group> -->
+                </search>
+            </field>
+        </record>
+
+        <!-- Action for Course -->
+        <record id="action_course_course" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">course.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_fl_responsible': 1}</field>
+        </record>
+
+        <!-- Menu Item for Course -->
+        <menuitem
+            id="menu_course_root"
+            name="Academy"
+            sequence="10"
+            web_icon="agnes_academy,static/description/odoo_icon.png"
+        />
+        <!-- comment for day 2 -->
+        <!-- groups="ardian_academy.group_academy_user" -->
+        <menuitem
+            id="menu_course_course"
+            name="Courses"
+            parent="menu_course_root"
+            action="action_course_course"
+            sequence="10"/>
+
+    </data>
+</odoo>
