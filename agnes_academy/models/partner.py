@@ -14,6 +14,18 @@ class Partner(models.Model):
         string='Course Session'
     )
 
+    @api.constrains('is_instructor')
+    def _check_instructor(self):
+        for record in self:
+            # prevent setting is_instructor to True if is_company is False
+            if len(record.course_session_ids) > 0:
+                raise ValidationError(
+                    'Unable to set Is Instructor to False if session reference exists.'
+                )
+            # unlink all instructure from session
+            # if record.course_session_ids:
+            #     record.course_session_ids.write({'partner_id': False})
+
     # def create(self, vals):
     #     for val in vals:
     #         if val.get('is_instructor') and not val.get('is_company'):

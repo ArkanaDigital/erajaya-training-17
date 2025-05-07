@@ -58,11 +58,12 @@ class Course(models.Model):
         'res.users',
         string='Responsible',
         domain=DOMAIN_USER_ID,
-        default=lambda self: self.env.user, index=True)
+        default=lambda self: self.env.user, index=True
+    )
     user_email = fields.Char(
         string="Responsible Email",
         compute='_compute_user_email',
-        store=False
+        store=True
     )
     session_ids = fields.One2many(
         comodel_name='course.session',
@@ -80,8 +81,13 @@ class Course(models.Model):
 
     # @api.onchange('user_id')
     # @api.onchange()
-    # @api.depends('user_id')
+    @api.depends('user_id', 'user_id.partner_id.email')
     def _compute_user_email(self):
+        """
+        Compute the email of the user responsible for the course.
+        - each time user_id change, then user_email is recomputed
+        - each time user_id.partner_id.email change, then user_email is recomputed
+        """
         for record in self:
             if record.user_id:
                 record.user_email = record.user_id.partner_id.email

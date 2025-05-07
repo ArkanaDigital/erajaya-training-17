@@ -32,6 +32,16 @@ class CourseSession(models.Model):
         'res.partner',
         string='Attendees'
     )
+    attendee_count = fields.Integer(
+        string='Attendee Count',
+        compute='_compute_attendee_count',
+        store=True
+    )
+    seat_occupied = fields.Float(
+        string='Seat Occupancy',
+        compute='_compute_seat_occupied',
+        store=True
+    )
 
     state = fields.Selection(
         [
@@ -41,6 +51,19 @@ class CourseSession(models.Model):
         ],
         string='Status', default='draft', tracking=True
     )
+
+    @api.depends('attendee_ids')
+    def _compute_attendee_count(self):
+        for session in self:
+            session.attendee_count = len(session.attendee_ids)
+
+    @api.depends('attendee_ids', 'seat_total')
+    def _compute_seat_occupied(self):
+        for session in self:
+            if session.seat_total > 0:
+                session.seat_occupied = (len(session.attendee_ids) / session.seat_total) * 100
+            else:
+                session.seat_occupied = 0
 
     def action_confirm(self):
         for session in self:

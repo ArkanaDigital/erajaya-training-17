@@ -14,6 +14,7 @@
                     <field name="start_date"/>
                     <field name="duration"/>
                     <field name="seat_total"/>
+                    <field name="seat_occupied" widget="progressbar"/>
                     <!-- <field name="seat_occupied" widget="progressbar"/> -->
                     <!-- <button name="button_confirm" type="object" string="open"/> -->
                 </tree>
@@ -46,6 +47,8 @@
                             <group>
                                 <field name="seat_total"/>
                                 <!-- day 2 -->
+                                <field name="attendee_count"/>
+                                <field name="seat_occupied" widget="progressbar"/>
                                 <!-- <field name="seat_occupied" widget="progressbar" invisible="state == 'draft'"/> -->
                                 <!-- <field name="course_ids" widget="many2many_tags"/> -->
                                 <!-- day 2 -->
