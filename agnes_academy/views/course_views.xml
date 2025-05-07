@@ -21,6 +21,7 @@
                     <!-- <field name="is_publish"/> -->
                     <field name="is_to_delete" invisible="1" />
                     <field name="state"/>
+                    <field name="company_id" optional="show"/>
                 </tree>
             </field>
         </record>
@@ -48,6 +49,7 @@
                                 <!-- day 2 -->
                                 <field name="company_id"/>
                                 <field name="user_id" domain="[]"/>
+                                <field name="user_email"/>
                                 <!-- domain example: ('name', 'ilike', 'XXX') -->
                                 <!-- day 2 -->
                                 <field name="duration"/>
