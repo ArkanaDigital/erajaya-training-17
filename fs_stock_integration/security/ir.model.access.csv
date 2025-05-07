@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fs_stock_integration_fs_stock_integration,fs_stock_integration.fs_stock_integration,model_fs_stock_integration_fs_stock_integration,base.group_user,1,1,1,1
