@@ -84,7 +84,17 @@ class Course(models.Model):
     active = fields.Boolean(default=True)
     is_to_delete = fields.Boolean()
 
+    allowed_state = fields.Char(
+        compute='_compute_allowed_state',
+        string='Allowed State'
+    )
+
     _sql_constraints = [('name_unique', 'UNIQUE(name)', 'Course name must be unique!')]
+
+    def _compute_allowed_state(self):
+        for record in self:
+            # query here
+            record.allowed_state = 'enrollment'
 
     # @api.onchange('user_id')
     # @api.onchange()

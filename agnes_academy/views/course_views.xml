@@ -47,22 +47,23 @@
                         <group>
                             <group>
                                 <!-- day 2 -->
-                                <field name="company_id"/>
-                                <field name="user_id"/>
+                                <field name="allowed_state" invisible="1"/>
+                                <field name="company_id"  readonly="state != allowed_state"/>
+                                <field name="user_id" readonly="state != allowed_state"/>
                                 <!-- <field name="user_id" domain="[('partner_id.is_instructor', '=', True)]"/> -->
                                 <field name="user_email"/>
                                 <!-- domain example: ('name', 'ilike', 'XXX') -->
                                 <!-- day 2 -->
-                                <field name="duration"/>
-                                <field name="level"/>
+                                <field name="duration"  readonly="state != allowed_state"/>
+                                <field name="level"  readonly="state != allowed_state"/>
                                 <!-- <field name="price" widget="monetary" readonly="is_edit_price != True"/> -->
                                 <!-- <field name="is_edit_price" invisible="1"/> -->
                                 <!-- <field name="currency_id"/> -->
                             </group>
                             <group>
-                                <field name="start_date"/>
-                                <field name="end_date"/>
-                                <field name="enrollment_deadline"/>
+                                <field name="start_date" readonly="state != allowed_state"/>
+                                <field name="end_date" readonly="state != allowed_state"/>
+                                <field name="enrollment_deadline" readonly="state != allowed_state"/>
                                 <!-- <field name="is_publish"/> -->
                             </group>
                         </group>

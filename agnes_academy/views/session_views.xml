@@ -73,10 +73,23 @@
             </field>
         </record>
 
+
+        <!-- Calendar View -->
+        <record model="ir.ui.view" id="course_sesion_view_calendar">
+            <field name="name">course.session.calendar</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Sessions" date_start="start_date" color="course_id">
+                    <field name="name"/>
+                    <field name="duration"/>
+                </calendar>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="course_sesion_view_action">
             <field name="name">Session</field>
             <field name="res_model">course.session</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,calendar,form</field>
         </record>
 
         <menuitem 
