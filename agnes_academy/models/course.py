@@ -1,6 +1,9 @@
+import logging
+
 from odoo import models, fields, api, _
 from datetime import date
 
+_logger = logging.getLogger(__name__)
 
 DOMAIN_USER_ID = [('name', 'ilike', 'XXX')]
 
@@ -105,14 +108,22 @@ class Course(models.Model):
 
     @api.model
     def create(self, vals):
+        _logger.error("Check before create. values to check: %s" % (vals))
         if 'abc' in (vals.get('name') or '').lower():
             raise models.ValidationError(_("The course title cannot contain the word 'abc'."))
-        return super(Course, self).create(vals)
+        res = super(Course, self).create(vals)
+        # Check before after do create
+        _logger.error("Check after create. result to check %s" % (res.read()))
+        return res
 
     def write(self, vals):
+        # Check before do write
         if 'name' in vals and 'abc' in vals['name'].lower():
             raise models.ValidationError(_("The course title cannot contain the word 'abc'."))
-        return super(Course, self).write(vals)
+        res = super(Course, self).write(vals)
+        # Check before after do write
+        # logic to check
+        return res
 
     def copy(self, default=None):
         default = dict(default or {})
