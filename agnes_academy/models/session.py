@@ -22,6 +22,7 @@ class CourseSession(models.Model):
         string='Instructor',
         domain="[('is_instructor', '=', True)]",
     )
+    # '|', ('is_instructor', '=', True),('vat', 'ilike', 'ABC')
     course_id = fields.Many2one(
         'course.course',
         string='Course',

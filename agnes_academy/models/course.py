@@ -1,6 +1,8 @@
 from odoo import models, fields, api, _
 
 
+DOMAIN_USER_ID = [('name', 'ilike', 'XXX')]
+
 class Course(models.Model):
     _name = 'course.course'
     _description = 'Course'
@@ -41,6 +43,7 @@ class Course(models.Model):
     user_id = fields.Many2one(
         'res.users',
         string='Responsible',
+        domain=DOMAIN_USER_ID,
         default=lambda self: self.env.user, index=True)
     session_ids = fields.One2many(
         comodel_name='course.session',
@@ -48,6 +51,12 @@ class Course(models.Model):
         string='Sessions'
     )
 
+    company_id = fields.Many2one(
+        'res.company',
+        string='Company',
+        required=True,
+        readonly=False,
+        default=lambda self: self.env.company)
     active = fields.Boolean(default=True)
     is_to_delete = fields.Boolean()
 

@@ -46,7 +46,9 @@
                         <group>
                             <group>
                                 <!-- day 2 -->
-                                <field name="user_id"/>
+                                <field name="company_id"/>
+                                <field name="user_id" domain="[]"/>
+                                <!-- domain example: ('name', 'ilike', 'XXX') -->
                                 <!-- day 2 -->
                                 <field name="duration"/>
                                 <field name="level"/>
