@@ -48,7 +48,8 @@
                             <group>
                                 <!-- day 2 -->
                                 <field name="company_id"/>
-                                <field name="user_id" domain="[]"/>
+                                <field name="user_id"/>
+                                <!-- <field name="user_id" domain="[('partner_id.is_instructor', '=', True)]"/> -->
                                 <field name="user_email"/>
                                 <!-- domain example: ('name', 'ilike', 'XXX') -->
                                 <!-- day 2 -->

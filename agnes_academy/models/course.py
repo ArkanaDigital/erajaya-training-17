@@ -57,7 +57,9 @@ class Course(models.Model):
     user_id = fields.Many2one(
         'res.users',
         string='Responsible',
-        domain=DOMAIN_USER_ID,
+        # domain=DOMAIN_USER_ID,
+        # domain="[('partner_id.is_instructor', '=', True)]",
+        domain=False,
         default=lambda self: self.env.user, index=True
     )
     user_email = fields.Char(
@@ -79,6 +81,8 @@ class Course(models.Model):
     active = fields.Boolean(default=True)
     is_to_delete = fields.Boolean()
 
+    _sql_constraints = [('name_unique', 'UNIQUE(name)', 'Course name must be unique!')]
+
     # @api.onchange('user_id')
     # @api.onchange()
     @api.depends('user_id', 'user_id.partner_id.email')
@@ -98,6 +102,26 @@ class Course(models.Model):
     def _onchange_start_date(self):
         if self.start_date:
             self.end_date = self.start_date
+
+    @api.model
+    def create(self, vals):
+        if 'abc' in (vals.get('name') or '').lower():
+            raise models.ValidationError(_("The course title cannot contain the word 'abc'."))
+        return super(Course, self).create(vals)
+
+    def write(self, vals):
+        if 'name' in vals and 'abc' in vals['name'].lower():
+            raise models.ValidationError(_("The course title cannot contain the word 'abc'."))
+        return super(Course, self).write(vals)
+
+    def copy(self, default=None):
+        default = dict(default or {})
+        if 'name' in default:
+            name = default['name']
+        else:
+            name = self.name
+        default['name'] = _("%s (Copy)") % name
+        return super(Course, self).copy(default)
 
     def default_start_date_second(self):
         return date.today()

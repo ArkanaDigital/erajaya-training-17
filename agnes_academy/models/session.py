@@ -2,7 +2,7 @@ import logging
 from datetime import timedelta
 
 from odoo import models, fields, api
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -64,6 +64,39 @@ class CourseSession(models.Model):
                 session.seat_occupied = (len(session.attendee_ids) / session.seat_total) * 100
             else:
                 session.seat_occupied = 0
+
+    @api.onchange('seat_total')
+    def onchange_seat_total(self):
+        if self.seat_total and self.seat_total < 0:
+            raise UserError('Number of seats most not negative!')
+
+    @api.onchange('seat_total')
+    def onchange_seat_total_check_attendee(self):
+        if self.seat_total < len(self.attendee_ids):
+            raise UserError('Unable to set Number of Seats less than registered Attendees')
+
+    @api.onchange('attendee_ids')
+    def onchange_attendee_ids(self):
+        if self.attendee_ids and len(self.attendee_ids) > self.seat_total:
+            # TODO: Find a way to reset attendee_ids if Onchange validation happened.
+            self.attendee_ids = self._origin.attendee_ids
+            raise UserError('Unable add more Attendee. There is not available seat!')
+        # trial reset change, failed.
+        # try:
+        #     # risky logic that may raise UserError
+        #     if self.attendee_ids and len(self.attendee_ids) > self.seat_total:
+        #         raise UserError("Invalid selection!")
+        # except UserError as e:
+        #     # reset changes to discard
+        #     self.attendee_ids = self._origin.attendee_ids
+        #     # Optionally re-raise or just show a warning
+        #     raise e
+
+    @api.constrains('partner_id', 'attendee_ids')
+    def _check_partner_attendance(self):
+        for rec in self:
+            if rec.partner_id and rec.partner_id in rec.attendee_ids:
+                raise UserError('Instructor cannot be Attendee')
 
     def action_confirm(self):
         for session in self:
