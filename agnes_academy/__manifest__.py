@@ -31,6 +31,7 @@ Long description of module's purpose
         'views/course_views.xml',
         'views/session_views.xml',
         'views/partner_views.xml',
+        'wizard/session_add_wizard_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

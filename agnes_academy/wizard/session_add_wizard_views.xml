@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <!-- Form view for the wizard -->
+        <record id="view_session_add_attendee_wizard_form" model="ir.ui.view">
+            <field name="name">session.add.attendee.wizard.form</field>
+            <field name="model">session.add.attendee.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add Attendees">
+                    <group>
+                        <field name="session_id" readonly="0"/>
+                        <field name="instructor_id" readonly="1"/>
+                        <field name="attendee_ids" widget="many2many_tags" domain="[('id', '!=', instructor_id)]" options="{'no_create': True}"/>
+                    </group>
+                    <footer>
+                        <button string="Add" type="object" name="action_add_attendees" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for the wizard -->
+        <record id="action_session_add_attendee_wizard" model="ir.actions.act_window">
+            <field name="name">Add Attendees</field>
+            <field name="res_model">session.add.attendee.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

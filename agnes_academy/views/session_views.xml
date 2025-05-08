@@ -29,6 +29,7 @@
                 <form>
                     <header>
                         <button name="action_confirm" type="object" string="Confirm" class="btn-primary"/>  
+                        <button name="%(agnes_academy.action_session_add_attendee_wizard)d" type="action" string="Add Attendee" class="oe_highlight"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
