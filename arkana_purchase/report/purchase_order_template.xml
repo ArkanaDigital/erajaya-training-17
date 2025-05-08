@@ -8,6 +8,16 @@
 
         <!-- 1. insert new header and column -->
         <xpath expr="//table//thead//th[@name='th_description']" position="after">
+            <th></th>
+        </xpath>
+        <xpath expr="//table//tbody//td[@id='product']" position="inside">
+            <div>
+                <t t-if="line.product_id.image_128">
+                    <img t-att-src="image_data_uri(line.product_id.image_128)" style="max-height: 128px;" alt="Image Thumbnail"/>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//table//thead//th[@name='th_description']" position="after">
             <th>Weight</th>
         </xpath>
         <xpath expr="//table//tbody//td[@id='product']" position="after">
@@ -25,6 +35,17 @@
             <div t-if="o.origin" class="col-3 bm-2">
                 <strong>Origin:</strong>
                 <p t-field="o.origin" class="m-0"/>
+            </div>
+        </xpath>
+
+        <!-- 4. insert static image -->
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div class="col-3 bm-2 text-center">
+                <strong>Signature:</strong><br/>
+                <div style="border: 1px solid #ccc; padding: 10px; display: inline-block;">
+                    <img src="/arkana_purchase/static/image/handwrite-sample.jpg" alt="Dummy Signature" style="max-width: 150px; max-height: 100px;"/>
+                </div>
+                <p style="margin-top: 5px;">[Name]</p>
             </div>
         </xpath>
 
