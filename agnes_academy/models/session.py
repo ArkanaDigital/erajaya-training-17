@@ -92,6 +92,12 @@ class CourseSession(models.Model):
         #     # Optionally re-raise or just show a warning
         #     raise e
 
+    @api.constrains('seat_total', 'attendee_ids')
+    def _check_attendee_ids_quota(self):
+        for session in self:
+            if len(session.attendee_ids) > session.seat_total:
+                raise ValidationError('Unable to add attendee. There is not available seat!')
+
     @api.constrains('partner_id', 'attendee_ids')
     def _check_partner_attendance(self):
         for rec in self:
