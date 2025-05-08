@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record model="res.groups" id="group_academy_user">
+            <field name="name">Staff</field>
+            <field name="category_id" ref="agnes_academy.module_academy"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record model="res.groups" id="group_academy_manager">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="agnes_academy.module_academy"/>
+            <field name="implied_ids" eval="[(5, 0), (4, ref('agnes_academy.group_academy_user'))]"/>
+        </record>
+
+        <record id="academy_manager_delete_rule" model="ir.rule">
+            <field name="name">Academy Manager Delete Restriction for non draft state</field>
+            <field name="model_id" ref="model_course_course"/>
+            <field name="groups" eval="[(4, ref('agnes_academy.group_academy_manager'))]"/>
+            <field name="domain_force">[('state', '=', 'draft')]</field>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- <record id="academy_staff_edit_rule" model="ir.rule">
+            <field name="name">Academy Staff Edit Restriction</field>
+            <field name="model_id" ref="model_course_course"/>
+            <field name="groups" eval="[(4, ref('agnes_academy.group_academy_user'))]"/>
+            <field name="domain_force">[('user_id', '=', False)]</field>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record> -->
+
+        <!-- <record id="academy_manager_edit_rule" model="ir.rule">
+            <field name="name">Academy Manager Edit Restriction</field>
+            <field name="model_id" ref="model_course_course"/>
+            <field name="groups" eval="[(4, ref('agnes_academy.group_academy_user'))]"/>
+            <field name="domain_force">[('user_id', '!=', False)]</field>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record> -->
+
+    </data>
+</odoo>

@@ -86,10 +86,23 @@
             </field>
         </record>
 
+        <!-- Graph View -->
+        <record model="ir.ui.view" id="course_sesion_view_graph">
+            <field name="name">course.session.graph</field>
+            <field name="model">course.session</field>
+            <field name="arch" type="xml">
+                <graph string="Sessions" type="bar">
+                    <field name="name" type="row"/>
+                    <field name="seat_total" type="measure"/>
+                    <field name="attendee_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="course_sesion_view_action">
             <field name="name">Session</field>
             <field name="res_model">course.session</field>
-            <field name="view_mode">tree,calendar,form</field>
+            <field name="view_mode">tree,calendar,graph,form</field>
         </record>
 
         <menuitem 

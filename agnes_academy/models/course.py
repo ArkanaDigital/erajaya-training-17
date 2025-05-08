@@ -155,10 +155,10 @@ class Course(models.Model):
         self.state = 'draft'
         return True
 
-    def unlink(self):
-        for record in self:
-            if record.state in ['enrollment']:
-                raise models.ValidationError(
-                    _("You can only delete courses in the 'Enrollment' state.")
-                )
-        return super(Course, self).unlink()
+    # def unlink(self):
+    #     for record in self:
+    #         if record.state in ['enrollment']:
+    #             raise models.ValidationError(
+    #                 _("You can only delete courses in the 'Enrollment' state.")
+    #             )
+    #     return super(Course, self).unlink()

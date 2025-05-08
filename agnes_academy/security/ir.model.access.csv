@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_course_course_all,access_course_course_all,model_course_course,,1,1,1,1
-access_course_session_all,access_course_session_all,model_course_session,,1,1,1,1
+access_course_course_all,access_course_course_all,model_course_course,,1,0,0,0
+access_course_course_staff,access_course_course_staff,model_course_course,group_academy_user,1,1,1,0
+access_course_course_manager,access_course_course_manager,model_course_course,group_academy_manager,0,0,0,1
+access_course_session_all,access_course_session_all,model_course_session,,1,0,0,0
+access_course_session_staff,access_course_session_staff,model_course_session,group_academy_user,1,1,1,0
+access_course_session_manager,access_course_session_manager,model_course_session,group_academy_manager,0,0,0,1

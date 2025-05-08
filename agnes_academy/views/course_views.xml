@@ -79,7 +79,7 @@
                                 <field name="session_ids" readonly="1"/>
                             </page>
                             <!-- day 2 -->
-                            <page string="Other Info">
+                            <page string="Other Info" groups="agnes_academy.group_academy_manager">
                                 <group>
                                     <field name="is_to_delete"/>
                                 </group>
@@ -112,11 +112,12 @@
                     <filter name="fl_state_enrollment" string="Enrollment" domain="[('state','=', 'enrollment')]"/>
                     <filter name="fl_state_progress" string="In Progress" domain="[('state','=', 'in_progress')]"/>
                     <filter name="fl_state_done" string="Done" domain="[('state','=', 'done')]"/>
-                    <!-- <filter name="fl_responsible" string="Responsible" domain="[('user_id','=', uid)]"/> -->
-                    <!-- <group>
+                    <separator />
+                    <filter name="fl_responsible" string="Responsible" domain="[('user_id','=', uid)]"/>
+                    <group>
                         <filter name="gr_responsible" string="Responsible" context="{'group_by':'user_id'}"/>
                         <filter name="gr_state" string="Status" context="{'group_by':'state'}"/>
-                    </group> -->
+                    </group>
                 </search>
             </field>
         </record>
@@ -126,7 +127,7 @@
             <field name="name">Courses</field>
             <field name="res_model">course.course</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_fl_responsible': 1}</field>
+            <field name="context">{'search_default_fl_responsible': 1, }</field>
         </record>
 
         <!-- Menu Item for Course -->
@@ -135,6 +136,7 @@
             name="Academy"
             sequence="10"
             web_icon="agnes_academy,static/description/odoo_icon.png"
+            groups="agnes_academy.group_academy_user"
         />
         <!-- comment for day 2 -->
         <!-- groups="ardian_academy.group_academy_user" -->

@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="0">
+        <record model="ir.module.category" id="module_academy_root">
+            <field name="name">Academy Management</field>
+            <field name="sequence">100</field>
+        </record>
+        <record model="ir.module.category" id="module_academy">
+            <field name="name">Academy</field>
+            <field name="parent_id" ref="module_academy_root"/>
+            <field name="sequence">1</field>
+        </record>
+    </data>
+</odoo>
