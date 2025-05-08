@@ -49,7 +49,8 @@
                                 <!-- day 2 -->
                                 <field name="allowed_state" invisible="1"/>
                                 <field name="company_id"  readonly="state != allowed_state"/>
-                                <field name="user_id" readonly="state != allowed_state"/>
+                                <!-- <field name="user_id" readonly="state != allowed_state"/> -->
+                                <field name="user_id" readonly="False"/>
                                 <!-- <field name="user_id" domain="[('partner_id.is_instructor', '=', True)]"/> -->
                                 <field name="user_email"/>
                                 <!-- domain example: ('name', 'ilike', 'XXX') -->
