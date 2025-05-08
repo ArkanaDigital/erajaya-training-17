@@ -98,7 +98,20 @@
                 <search>
                     <field name="name"/>
                     <field name="description"/>
-                    <!-- <filter name="fl_in_progress" string="In Progress" domain="[('state','=', 'in_progress')]"/> -->
+                    <field
+                        name="description"
+                        filter_domain="['|', ('name', 'ilike', self), ('description', '=ilike',  '%' + self + '%')]"
+                        string="Title OR Description"
+                    />
+                    <field
+                        name="user_id"
+                        filter_domain="['|', ('user_id.name', 'ilike', self), ('user_id.email', '=ilike',  '%' + self + '%')]"
+                        string="Responsible"
+                    />
+                    <filter name="fl_state_draft" string="Draft" domain="[('state','=', 'draft')]"/>
+                    <filter name="fl_state_enrollment" string="Enrollment" domain="[('state','=', 'enrollment')]"/>
+                    <filter name="fl_state_progress" string="In Progress" domain="[('state','=', 'in_progress')]"/>
+                    <filter name="fl_state_done" string="Done" domain="[('state','=', 'done')]"/>
                     <!-- <filter name="fl_responsible" string="Responsible" domain="[('user_id','=', uid)]"/> -->
                     <!-- <group>
                         <filter name="gr_responsible" string="Responsible" context="{'group_by':'user_id'}"/>

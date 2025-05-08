@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ir_config_parameter_fakestoreapi_url" model="ir.config_parameter">
+            <field name="key">fakestoreapi.product.url</field>
+            <field name="value">https://fakestoreapi.com/products</field>
+        </record>
+    </data>
+</odoo>

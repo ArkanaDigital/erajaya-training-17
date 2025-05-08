@@ -13,7 +13,13 @@ class ProductProduct(models.Model):
     def import_products_from_api(self):
         """Import products from a public API with duplicate prevention"""
         try:
-            api_url = "https://fakestoreapi.com/products"
+            # get from ir.config_parameter
+            api_url = self.env['ir.config_parameter'].sudo().get_param(
+                'fakestoreapi.product.url'
+            )
+            if not api_url:
+                # hardcoded URL for testing
+                api_url = "https://fakestoreapi.com/products"
             _logger.info(f"Fetching products from {api_url}")
 
             response = requests.get(api_url)
