@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_course_session_report_xlsx" model="ir.actions.report">
+            <field name="name">Course Session Report (XLSX)</field>
+            <field name="model">course.session</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">agnes_academy_report.course_session_xlsx</field>
+            <field name="report_file">agnes_academy_report.course_session_xlsx</field>
+            <field name="binding_model_id" ref="agnes_academy.model_course_session"/>
+            <field name="binding_type">report</field>
+            <field name="attachment_use" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

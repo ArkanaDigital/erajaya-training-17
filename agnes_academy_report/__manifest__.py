@@ -18,11 +18,13 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['agnes_academy'],
+    'depends': ['agnes_academy', 'report_xlsx'],
 
     # always loaded
     'data': [
-        'report/course_session_report.xml'
+        'report/course_session_report.xml',
+        'report/course_session_report_xlsx.xml',
+        'report/test_xlsx_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
