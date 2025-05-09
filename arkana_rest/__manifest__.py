@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Academy Management",
+    'name': "Arkana dummy REST API",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
@@ -18,24 +18,13 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'web'],
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'security/security.xml',
-        'data/course_data.xml',
-        'data/module_category_data.xml',
-        'views/views.xml',
-        'views/templates.xml',
-        'views/course_views.xml',
-        'views/session_views.xml',
-        'views/partner_views.xml',
-        'wizard/session_add_wizard_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
     ],
 }
 

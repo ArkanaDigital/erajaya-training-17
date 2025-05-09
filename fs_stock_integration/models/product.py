@@ -84,7 +84,7 @@ class ProductProduct(models.Model):
                 'params': {
                     'title': 'Success',
                     'message': message,
-                    'sticky': False,
+                    'sticky': True,
                 }
             }
         except Exception as e:

@@ -29,6 +29,7 @@
                 <form>
                     <header>
                         <button name="action_confirm" type="object" string="Confirm" class="btn-primary"/>  
+                        <button name="action_set_to_draft" type="object" string="Set to Draft" class="btn-secondary"/>
                         <button name="%(agnes_academy.action_session_add_attendee_wizard)d" type="action" string="Add Attendee" class="oe_highlight"/>
                         <field name="state" widget="statusbar"/>
                     </header>
@@ -65,10 +66,10 @@
                     </sheet>
                     <!-- day 2 -->
                     <!-- Chatter -->
-                    <!-- <div class="oe_chatter">
+                    <div class="oe_chatter">
                         <field name="message_follower_ids" groups="base.group_user"/>
                         <field name="message_ids"/>
-                    </div> -->
+                    </div>
                     <!-- day 2 -->
                 </form>
             </field>

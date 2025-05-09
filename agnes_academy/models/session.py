@@ -1,7 +1,7 @@
 import logging
 from datetime import timedelta
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
@@ -9,6 +9,7 @@ _logger = logging.getLogger(__name__)
 
 class CourseSession(models.Model):
     _name = 'course.session'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Course Session'
 
     # day 1
@@ -109,3 +110,26 @@ class CourseSession(models.Model):
             if session.state != 'draft':
                 raise UserError("Only draft sessions can be confirmed.")
             session.state = 'confirmed'
+        return {
+            'test': 'test',
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+        }
+
+    def action_set_to_draft(self):
+        for session in self:
+            # if session.state != 'done':
+            #     raise UserError("Only done sessions can be reset to draft.")
+            session.state = 'draft'
+
+    def write(self, vals):
+        res = super().write(vals)
+
+        if self.env.context.get('rpc_call'):
+            for record in self:
+                record.message_post(
+                    body=_("⚠️ Updated via RPC/External API with values: %s") % vals,
+                    message_type='comment',
+                    subtype_xmlid='mail.mt_note',
+                )
+        return res

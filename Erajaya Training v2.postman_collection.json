@@ -1,0 +1,873 @@
+{
+	"info": {
+		"_postman_id": "f4e2abcf-4b39-4f1e-a52b-dcd54661201c",
+		"name": "Erajaya Training",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25612976"
+	},
+	"item": [
+		{
+			"name": "/api/v1",
+			"item": [
+				{
+					"name": "/partners/list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "d3c55ac4fbb9d97a3316374a2436408ac4f9841f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8069/api/v1/partners/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8069",
+							"path": [
+								"api",
+								"v1",
+								"partners",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sample1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8069/api/v1/partners/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8069",
+									"path": [
+										"api",
+										"v1",
+										"partners",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "908"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 May 2025 02:43:58 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 45,\n        \"name\": \"Abigail Peterson\",\n        \"email\": \"abigail.peterson39@example.com\",\n        \"phone\": false\n    },\n    {\n        \"id\": 53,\n        \"name\": \"Anita Oliver\",\n        \"email\": \"anita.oliver32@example.com\",\n        \"phone\": false\n    },\n    {\n        \"id\": 64,\n        \"name\": \"Ardian\",\n        \"email\": false,\n        \"phone\": false\n    },\n    {\n        \"id\": 65,\n        \"name\": \"Ardian 123\",\n        \"email\": false,\n        \"phone\": false\n    },\n    {\n        \"id\": 69,\n        \"name\": \"Arkana Solusi Digital\",\n        \"email\": false,\n        \"phone\": false\n    },\n    {\n        \"id\": 46,\n        \"name\": \"Audrey Peterson\",\n        \"email\": \"audrey.peterson25@example.com\",\n        \"phone\": false\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Azure Interior\",\n        \"email\": \"azure.Interior24@example.com\",\n        \"phone\": \"(870)-931-0505\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"Brandon Freeman\",\n        \"email\": \"brandon.freeman55@example.com\",\n        \"phone\": \"(355)-687-3262\"\n    },\n    {\n        \"id\": 33,\n        \"name\": \"Colleen Diaz\",\n        \"email\": \"colleen.diaz83@example.com\",\n        \"phone\": \"(255)-595-8393\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"Nicole Ford\",\n        \"email\": \"nicole.ford75@example.com\",\n        \"phone\": \"(946)-638-6034\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/partners/detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "d3c55ac4fbb9d97a3316374a2436408ac4f9841f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8069/api/v1/partners/detail/45",
+							"host": [
+								"localhost"
+							],
+							"port": "8069",
+							"path": [
+								"api",
+								"v1",
+								"partners",
+								"detail",
+								"45"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "id=45",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8069/api/v1/partners/detail/45",
+									"host": [
+										"localhost"
+									],
+									"port": "8069",
+									"path": [
+										"api",
+										"v1",
+										"partners",
+										"detail",
+										"45"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 May 2025 02:45:10 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 45,\n    \"name\": \"Abigail Peterson\",\n    \"email\": \"abigail.peterson39@example.com\",\n    \"phone\": false,\n    \"street\": false,\n    \"city\": false,\n    \"country\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/partners/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "d3c55ac4fbb9d97a3316374a2436408ac4f9841f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"62812312312\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8069/api/v1/partners/update/45",
+							"host": [
+								"localhost"
+							],
+							"port": "8069",
+							"path": [
+								"api",
+								"v1",
+								"partners",
+								"update",
+								"45"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/partners/detail Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"62812312312\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8069/api/v1/partners/update/45",
+									"host": [
+										"localhost"
+									],
+									"port": "8069",
+									"path": [
+										"api",
+										"v1",
+										"partners",
+										"update",
+										"45"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 May 2025 06:23:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 45,\n    \"name\": \"Abigail Peterson\",\n    \"email\": \"abigail.peterson39@example.com\",\n    \"phone\": \"62812312312\",\n    \"changed_fields\": {\n        \"phone\": \"62812312312\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/partners/delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "d3c55ac4fbb9d97a3316374a2436408ac4f9841f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8069/api/v1/partners/delete/65",
+							"host": [
+								"localhost"
+							],
+							"port": "8069",
+							"path": [
+								"api",
+								"v1",
+								"partners",
+								"delete",
+								"65"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/partners/delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8069/api/v1/partners/delete/63",
+									"host": [
+										"localhost"
+									],
+									"port": "8069",
+									"path": [
+										"api",
+										"v1",
+										"partners",
+										"delete",
+										"63"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.10.12"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 May 2025 08:46:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Partner deleted successfully\",\n    \"old_data\": [\n        {\n            \"id\": 63,\n            \"name\": \"Sample Test 123\",\n            \"email\": false,\n            \"phone\": false\n        }\n    ],\n    \"delete_date\": \"2025-05-09 08:46:11.103791\",\n    \"deleted_uid\": 2\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.json().result) {",
+							"    pm.environment.set(\"session_id\", pm.cookies.get(\"session_id\"));",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"db\": \"v17_yazaki_training\",\n        \"login\": \"admin\",\n        \"password\": \"admin\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/session/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"session",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"read\",\n        \"args\": [[1]],\n        \"kwargs\": {\n            \"fields\": [\"name\", \"course_id\", \"start_date\", \"duration\", \"partner_id\", \"attendee_ids\"]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"search_read\",\n        \"args\": [[[\"duration\", \">=\", 4]]],\n        \"kwargs\": {\n            \"fields\": [\"name\", \"course_id\", \"duration\"]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Write Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"write\",\n        \"args\": [\n            [1],\n            {\n                \"duration\": 3,\n                \"attendee_ids\": [[4, 59, 0], [4, 47, 0]]\n            }\n        ],\n        \"kwargs\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"create\",\n        \"args\": [{\n            \"name\": \"Python Programming Basics\",\n            \"course_id\": 1,\n            \"start_date\": \"2025-03-01\",\n            \"duration\": 4,\n            \"partner_id\": 1,\n            \"attendee_ids\": [[6, 0, [47, 59, 35]]]\n        }],\n        \"kwargs\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"unlink\",\n        \"args\": [[15]],\n        \"kwargs\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set to Draft Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"action_confirm\",\n        \"args\": [[6]], // replace 1 with your session ID or [1,2,3] for multiple records\n        \"kwargs\": {\"rpc_call\": true}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"action_set_confirmed\",\n        \"args\": [[1]], // replace 1 with your session ID or [1,2,3] for multiple records\n        \"kwargs\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Done Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: 'Cookie',",
+							"    value: 'session_id=' + pm.environment.get(\"session_id\")",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"model\": \"course.session\",\n        \"method\": \"action_set_done\",\n        \"args\": [[1]], // replace 1 with your session ID or [1,2,3] for multiple records\n        \"kwargs\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8069/web/dataset/call_kw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8069",
+					"path": [
+						"web",
+						"dataset",
+						"call_kw"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
