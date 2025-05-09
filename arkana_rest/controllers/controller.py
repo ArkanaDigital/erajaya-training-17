@@ -30,6 +30,8 @@ class MyApi(http.Controller):
                 }
                 for p in partners
             ]
+            # # Call a method on the model to process the request
+            # data = request.env["res.partner"].with_user(user_id).get_partner_list(limit=10)
             return json_response(data)
         except Exception as e:
             _logger.exception("Error in get_partners")
